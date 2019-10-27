@@ -14,7 +14,7 @@ for directory in dir_list:
 print(file_tup)
 
 #using chrome to access web
-driver = webdriver.Chrome()
+driver = webdriver.Firefox()
 
 driver.get('https://192.168.100.1/')
 
@@ -34,7 +34,7 @@ driver.find_element_by_id('addconfig').click()
 driver.find_element_by_id('wlanconfig').click()
 
 #input new password
-wpa2 = driver.find_element_by_class_name('table_right')
+wpa2 = driver.find_element_by_class_name('twlWpaPsk')
 wpa2.clear()
 wpa2.send_keys('21Savage')
 
