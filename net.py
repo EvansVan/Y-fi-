@@ -9,15 +9,11 @@ from selenium.common.exceptions import NoSuchElementException
 
 def yFi():
     # Build tuple of (class, file) to turn in
-    submission_dir = '/home/vans/Desktop/test'
+    submission_dir = '/home/vans/Desktop/test/pass.txt'
+    file_tup =open(submission_dir,"r")   
 
-    dir_list = list(os.listdir(submission_dir))
-    for directory in dir_list:
-        file_list = list(os.listdir(os.path.join(submission_dir,directory)))
-        if len(file_list) != 0:
-            file_tup = (directory, file_list[0])
-
-    print(file_tup)
+    newpass = file_tup.read()
+    print(newpass)
 
     try:
         #using chrome to access web
@@ -31,7 +27,7 @@ def yFi():
         driver.find_element_by_id('txt_Username').send_keys('root')
 
         #find the password box and send value
-        driver.find_element_by_id('txt_Password').send_keys('@Idontlike5')
+        driver.find_element_by_id('txt_Password').send_keys('guX5Wd')
 
         #click login button
         driver.find_element_by_id('loginbutton').click()
@@ -49,10 +45,10 @@ def yFi():
         #
         #input new password
         driver.find_element_by_id('wlWpaPsk').clear()
-        driver.find_element_by_id('wlWpaPsk').send_keys("test")
+        driver.find_element_by_id('wlWpaPsk').send_keys(newpass)
         
         driver.find_element_by_id('hidewlWpaPsk').click()
-        time.sleep(10)
+        time.sleep(3)
         print("yes")
         #
         #select 5g wlan
