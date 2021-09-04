@@ -23,16 +23,15 @@ def yFi():
         driver = webdriver.Chrome(chrome_options=options)
         driver.get('https://192.168.100.1/')
 
-        #find the username box and send value
+        #find the username and password box and send value
         driver.find_element_by_id('txt_Username').send_keys('root')
 
-        #find the password box and send value
-        driver.find_element_by_id('txt_Password').send_keys('guX5Wd')
+        driver.find_element_by_id('txt_Password').send_keys('@Idontlike5')
 
         #click login button
         driver.find_element_by_id('loginbutton').click()
 
-        #select advanced tab
+        
         driver.find_element_by_id('addconfig').click()
         
         #select WLAN
@@ -42,21 +41,27 @@ def yFi():
         
         driver.switch_to.frame("menuIframe")
 
-        #
         #input new password
         driver.find_element_by_id('wlWpaPsk').clear()
         driver.find_element_by_id('wlWpaPsk').send_keys(newpass)
-        
         driver.find_element_by_id('hidewlWpaPsk').click()
-        time.sleep(3)
-        print("yes")
-        #
-        #select 5g wlan
-        #wlan5g = driver.find_element_by_id('wlan5basic')
-        #
+    
         #click apply btn
-        #pply = driver.find_element_by_id('btnApplySubmit')
-        #apply.click()
+        driver.find_element_by_id('btnApplySubmit').click()
+        print("doneskies")
+
+        # back to previous frame
+        driver.switch_to.parent_frame()
+
+        #select 5g network
+        driver.find_element_by_id('wlan5basic').click()
+        driver.switch_to.frame("menuIframe")
+        driver.find_element_by_id('wlWpaPsk').clear()
+        driver.find_element_by_id('wlWpaPsk').send_keys(newpass)
+        driver.find_element_by_id('hidewlWpaPsk').click()
+        #click apply btn
+        driver.find_element_by_id('btnApplySubmit').click()
+        print("doneskies")
 
     except NoSuchElementException as e:
         print(e)
