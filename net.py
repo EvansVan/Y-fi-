@@ -9,7 +9,7 @@ from selenium.common.exceptions import NoSuchElementException
 
 def yFi():
     # Build tuple of (class, file) to turn in
-    submission_dir = '/home/vans/Desktop/test/pass.txt'
+    submission_dir = '/home/vans/Desktop/y-fi??/test/pass.txt'
     file_tup =open(submission_dir,"r")   
 
     newpass = file_tup.read()
@@ -21,12 +21,12 @@ def yFi():
         options.add_argument('--ignore-certificate-errors')
 
         driver = webdriver.Chrome(chrome_options=options)
-        driver.get('https://192.168.100.1/')
+        driver.get('')
 
         #find the username and password box and send value
-        driver.find_element_by_id('txt_Username').send_keys('root')
+        driver.find_element_by_id('txt_Username').send_keys('')
 
-        driver.find_element_by_id('txt_Password').send_keys('@Idontlike5')
+        driver.find_element_by_id('txt_Password').send_keys('')
 
         #click login button
         driver.find_element_by_id('loginbutton').click()
@@ -62,8 +62,8 @@ def yFi():
         #click apply btn
         driver.find_element_by_id('btnApplySubmit').click()
         print("doneskies")
-
     except NoSuchElementException as e:
         print(e)
+
 
 yFi()
